@@ -15,7 +15,7 @@ class ConcentrationViewController: UIViewController {
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
     
     var numberOfPairsOfCards : Int {
-        return (cardButtons.count+1)/2
+        return (visibleCardButtons.count+1)/2
     }
     
     //when you initialize var it does not invoke didSet
@@ -49,10 +49,14 @@ class ConcentrationViewController: UIViewController {
     }
     
     
+    private var visibleCardButtons : [UIButton]!{
+        return cardButtons?.filter{ !$0.superview!.isHidden}
+    }
+    
     @IBAction private func touchCard(_ sender: UIButton) {
         flipCount+=1
         
-        if let cardNumber = cardButtons.index(of:sender){
+        if let cardNumber = visibleCardButtons.index(of:sender){
             
             game.chooseCard(at: cardNumber)
             // as view is out of sync with model we update View
@@ -67,10 +71,10 @@ class ConcentrationViewController: UIViewController {
     private func updateViewFromModel(){
         //po cardButtons on console to see number coming nil  //left side thread error is called "call stack"
        // cardButtons != nil to protect against accessing cardButton when its not set i.e. in segue
-        if cardButtons != nil {
-            for index in cardButtons.indices
+        if visibleCardButtons != nil {
+            for index in visibleCardButtons.indices
             {
-                let button = cardButtons[index]
+                let button = visibleCardButtons[index]
                 let card = game.cards[index]
                 if card.isFaceUp{
                     button.setTitle(emoji(for: card), for: .normal)
@@ -133,3 +137,9 @@ extension Int{
         }
     }
 }
+
+//selecting button in stack view that gonna hide they get hidden
+//This is kinda of clucky UI  because we are using these outlet collections to gather  all these cards
+// one thing that I could do really easily is go back to my code
+//And just every where that I am doing card buttons looking at all cards buttons
+//instead of looking at all cards buttons 24 cards buttons I am only  going to look for 20 visible card buttons  at any given time
