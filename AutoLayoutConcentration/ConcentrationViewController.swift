@@ -52,6 +52,16 @@ class ConcentrationViewController: UIViewController {
     private var visibleCardButtons : [UIButton]!{
         return cardButtons?.filter{ !$0.superview!.isHidden}
     }
+    /*
+     But it still dont work as when we switch back and forth all those view get relayed out  (layout subviews happens )(but nothing ever cause them to reset them up for my model )(So they have all still got the buttons from  what they were before )(So what I need to do is every time I relayout my subview like this I need  to update my view from the model )(well view controller lifecycle comes to rescue here (viewDidLayoutSubviews))
+     
+     //it can come  in random location if buttons not connected in proper order in button outlet connection
+ */
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateViewFromModel()
+    }
+    
     
     @IBAction private func touchCard(_ sender: UIButton) {
         flipCount+=1
