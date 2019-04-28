@@ -1,0 +1,219 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 LucidaGrande-Bold;\f2\froman\fcharset0 Times-Roman;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{check\}}{\leveltext\leveltemplateid1\'01\uc0\u10003 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx220\tx720\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\fi-720\pardirnatural\qc\partightenfactor0
+\ls1\ilvl0
+\f0\b\fs24 \cf0 {\listtext	
+\f1 \uc0\u10003 
+\f0 	}Autolayout\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b0 \cf0 \
+\
+\
+\
+ {{\NeXTGraphic Screen Shot 2019-04-28 at 8.03.18 PM.png \width14360 \height7600 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 What we have seen so far\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+We used dashed blue line to tell XCode  what we mean i.e put things in center , putting things on edges by the dashed blue lines\
+We can also do reset to suggested constraints , lower right which will right to make constraints that make the blue lines that makes sense but we know it doesn't really work more than 50% of time\
+So we learned control drag to the edges  or to the other views and then set the width or aspect ratio or the edges to be same or whatever\
+We know we can go to the size inspector and look at all the constraints that are constraining a certain view just by click on the view looking in the size factor and we can even edit simple things about constraints right there in the size inspector like constant values or things like that \
+we also have if we can get at it in the interface where we can click on constraint and open up the inspector and inspect detailed information about the constraint .\
+We also know about the "pin" menu in the lower right that lets us set some constraints like hooking it to the edges and things like that\
+There's also a arrange button down there it lets you line up front edges and things like that and we also learned  that the document outline is the awesome place to go it really look at our constraint in detail because it lists every constraint as a line item also where the special place to click to resolve problems with your constraints \
+So document outline is just fundamental to using autolayout \
+\
+\
+Understand mastering auto layout takes experience ,\
+You don't have someone just tell you all these things or even show them to you and it's like \
+oh no and Im master at auto layout \
+ you have to laid out a lot of things and understood the conflicts that arise and what the limitations are and all that \
+It's really a fantastic system auto layout very powerful\
+But it does takes some experience to master so don't get too frustrated  \
+\
+\
+It is possible to do all this autolayout stuff from code in other words not with control dragging and all that not in interface builder but actually write code to do all of this \
+\
+Rnd for programmatically( Search UIView documentation and search for  "anchors"  and auto layout  ) those are 2 main sets of API there.\
+And then there's also just documentation how to do auto layout system  you can read through all that if you really want to get to be a master of autolayout from code\
+It's necessarily not that difficult but it really truely understand requires understanding  auto layout how it's working to do it from code\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-28 at 8.03.55 PM.png \width14560 \height7100 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 Autolayout sometime is just not enough .\
+The autolayout you know so far is just not enough \
+Sometime when you rotate your device , your geometry changes so dramatically , there just no way to ctrl drag to make things happen\
+e.g. In concentration we know that \
+Concentration with lot of buttons looks great in portrait all the buttons kinda of look square but when you go to landscape  buttons are all smashed down there's barely enough room to say flips 27 at the bottom and it just really gets smashed\
+It really would be great if i switch to landscape if I have 20 buttons lets say it went 5 across and 4 down \
+may be its' move that flips thing off the side that will be much better in landscape but no amount of control dragging to the edges is gonna make that happen \
+it just cant be done , You cant constraint the views , to make them relay  themselves out like that on rotation\
+\
+\
+So what's the solution to that?\
+size classes....!!!\
+Now apple made a great decision that when you rotate to landscape  Vs portrait \
+instead of their reporting to you  here's your new dimensions figure it out they just simplified it down to 2 and only 2 values for you horizontal and vertical size\
+Your are either compact or regular sized in width and height that's it they are gonna report that you and there's a whole system there for letting you know when that changes and then you build your UI so that's it look's good compact vertically it looks good  and when its compact horizontally its looks good and when its regular vertical and it looks good its regular vertically and horizontally \
+So that simplifies the system dramatically and you are gonna see that it works in the vast majority of situations\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-28 at 8.04.19 PM.png \width14720 \height6580 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+So let's talk about this whole size class thing \
+\
+\
+iPhones\
+\
+What the devices is what size classes the devices are in \
+for e.g. i
+\b Phones are compact in width and regular in height when they are in portrait mode
+\b0 \
+\
+
+\b When you rotate an iPhone  not an iPhone Plus   a regular iPhone now its considered compact in both directions 
+\b0 which is little counterintuitive and you would think oh well now it's regular in width and no but it's considered compact in width and its amazing how often that turns out to be exactly what you want  and you will see that to be the case \
+\
+\
+\
+\
+iPhone Plus\
+\
+
+\b Now iPhone Plus are different are still compact in width and regular in height  in portrait \
+but when you turn them to landscape now its regular in width and compact in height 
+\b0 \
+\
+\
+\
+iPad\
+\
+Are regular width and regular height portrait or landscape doesn't matter ,\
+They are always regular in both \
+ You can imagine they are big , iPad are huge\
+However notice that in MVC that is in the master of split View Controller is compact in width even though its on iPad\
+it's still compact in width and regular in height\
+\
+\
+So it's not just the device you are on that says what environment your MVC is in it might be the MVC situation that it's in \
+So that's why we dont look at things like am I on the iPad because then I would say am I on iPad and am I in the splitView ,\
+We just ask am I compact or regular in my width and  height ?and then react to that\
+\
+\
+
+\b \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b0 \cf0 {{\NeXTGraphic Screen Shot 2019-04-28 at 8.04.40 PM.png \width13760 \height7860 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b0 \cf0 \
+So here are all the devices in the little grid for that and let me show you what an app so here's an app like a calculator similar to our concentration \
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-28 at 8.09.34 PM.png \width12640 \height8100 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+calculator has lot of buttons and may be it will look better  with five across and 4 down in the 2 cases where its compact height \
+Where its compact width or regular width it still looks better to have only 4 high in a compact height and when it's regular height its always looks better to have five high or may be more  even but its always looks better  to have five than four   \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b0 \cf0 {{\NeXTGraphic Screen Shot 2019-04-28 at 8.09.56 PM.png \width14980 \height7060 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+
+\b0 We always know what size class we are in we always know that as where our MVC is doing its business,\
+What can we do based  on that knowledge well one thing we can do is vary  a lot of view properties  like fonts on the UI Label , a background color ,whether a view is hidden or not whether a view is in view hierarchy can be controlled by size class \
+ so if your compact height may be you have a view that just completely hidden in compact height \
+may be it only appears on regular height \
+That's perfectly controllable using  your size class \
+\
+But more importantly and most powerful thing you can do  is have your constraints be tied to your size class\
+Because remember what puts anything on screen in any place well its just the constraints \
+Constraints are just what constraints a view to being in certain space in Auto Layout \
+well if you can control those constraints using the size class then you can make those views move around to different spots depending on your size class like go 5 by 4 instead of going 4 by 5\
+we are moving the little flipped label off to the side  \
+So constraints being able to control constraints with your size class is really the  power of the size class \
+\
+\
+Now cool thing is that interface builder has support for doing all of this graphically so you dont  even have to do this in you code\
+You can do it graphically \
+Now its possible to find out whats your size class in code \
+for e.g.  if you wanna know your horizontal size class whether you are compact or regular horizontally you just call this method you can access this object that's in you viewcontroller called \
+
+\b traitCollection    its the collection of all your traits 
+\b0 \
+and one of you trait is horizontal size class \
+you can get it back into 
+\b enum
+\b0  it's either 
+\b compact or regular or it could be unspecified
+\b0  but that wouldnt actually be that while you are running \
+\
+Again it's rare to do this we are gonna do this all in interface builder and so that something all visual 
+\b \
+\
+\
+Instruments is performance analysis tool\
+ and especially when you are doing multi threading stuff you wanna know what's taking a  long time to execute so that you can put it off into the other thread .\
+Sometime its obvious when to network blocking thing but other times you have stuff that's conditional computing actually turns out to be taking a lot of time \
+So instruments to find out what that is  will  save you lot of putting stuff on other threads it doesnt  need to be . Only the stuff it need to be  \
+\
+\
+Donlad Knuth  "
+\f2 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 premature optimization is the root of all evil (or at least most of it) in programming
+\f0 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 " \
+i.e. dont prematurely optimize dont your 
+\f2\b0 \cf2 \expnd0\expndtw0\kerning0
+obfuscate
+\f0\b \cf0 \kerning1\expnd0\expndtw0  code to make it faster , unless you are sure thats actually whats running slow \
+well you need instruments to know that \
+\
+\
+}

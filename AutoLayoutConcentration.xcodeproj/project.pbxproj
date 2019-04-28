@@ -14,6 +14,7 @@
 		2C0F44C12248C52500E468FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C0F44BF2248C52500E468FC /* LaunchScreen.storyboard */; };
 		2C0F44CA2248EDDC00E468FC /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F44C92248EDDC00E468FC /* Concentration.swift */; };
 		2C0F44CC2248EF4B00E468FC /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F44CB2248EF4B00E468FC /* Card.swift */; };
+		2CADA96E2275E50000C46096 /* AutoLayout.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 2CADA96D2275E50000C46096 /* AutoLayout.rtfd */; };
 		9B1DA26D22644DAC008C5231 /* ConcentrationThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1DA26C22644DAC008C5231 /* ConcentrationThemeChooserViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		2C0F44C22248C52500E468FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C0F44C92248EDDC00E468FC /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 		2C0F44CB2248EF4B00E468FC /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		2CADA96D2275E50000C46096 /* AutoLayout.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = AutoLayout.rtfd; sourceTree = "<group>"; };
 		9B1DA26C22644DAC008C5231 /* ConcentrationThemeChooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationThemeChooserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 				2C0F44BA2248C52300E468FC /* Main.storyboard */,
 				2C0F44C22248C52500E468FC /* Info.plist */,
 				9B1DA26C22644DAC008C5231 /* ConcentrationThemeChooserViewController.swift */,
+				2CADA96D2275E50000C46096 /* AutoLayout.rtfd */,
 			);
 			path = AutoLayoutConcentration;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 				2C0F44C12248C52500E468FC /* LaunchScreen.storyboard in Resources */,
 				2C0F44BE2248C52500E468FC /* Assets.xcassets in Resources */,
 				2C0F44BC2248C52300E468FC /* Main.storyboard in Resources */,
+				2CADA96E2275E50000C46096 /* AutoLayout.rtfd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
