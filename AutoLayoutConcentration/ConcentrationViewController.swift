@@ -32,12 +32,20 @@ class ConcentrationViewController: UIViewController {
         let attributes : [NSAttributedString.Key: Any] = [ .strokeWidth : 5,.strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]
         
         //creating NSAttributedString
-        let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
+        let attributedString = NSAttributedString(string: traitCollection.verticalSizeClass == .compact ? "Flips\n\(flipCount)" : "Flips: \(flipCount)", attributes: attributes)
         // flipCountLabel.text = "Flips: \(flipCount)"
         
         //setting NSAtrributedString
         flipCountLabel.attributedText = attributedString
     }
+    
+    //This gets called everytime your traitCollection collection changes i.e everytime your size class changes
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        updateFlipCountLabel()
+    }
+    
     @IBOutlet private var cardButtons: [UIButton]!
     
     //iOS makes connection with Label wehn we have IBOutlet so we can use didSet
